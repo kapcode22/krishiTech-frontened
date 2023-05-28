@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Jobs from "./components/Jobs";
 import About from "./components/About";
 import Wager from "./components/Wager";
+import Features from "./components/Features";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Agrimachinery from "./components/Agrimachinery";
@@ -162,6 +163,9 @@ function App() {
             </Route>
             <Route exact path="/about">
               <About />
+            </Route>
+            <Route exact path="/features">
+              <Features></Features>
             </Route>
             <Route
               exact

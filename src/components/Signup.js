@@ -9,8 +9,8 @@ const Signup = () => {
   
 
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -41,33 +41,28 @@ const Signup = () => {
     console.log(process.env.REACT_APP_SERVER_DOMIN)
     const handleSubmit= async(e)=>{
       e.preventDefault();
-    const { firstName, email, password, confirmPassword } = data;
-    if (firstName && email && password && confirmPassword) {
-      if (password === confirmPassword) {
-    
-          const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMIN}/signup`,{
-            method : "POST",
-            headers : {
-              "content-type" : "application/json"
-            },
-            body : JSON.stringify(data)
-          })
-
-          const dataRes = await fetchData.json()
-          console.log(dataRes)
-
-        // alert(dataRes.message);
-        // toast(dataRes.message)
-        // if(dataRes.alert){
-        //   navigate("/login");
-        // }
-       
-      } else {
-        alert("password and confirm password not equal");
-      }
-    } else {
-      alert("Please Enter required fields");
-    }
+    const { firstname, lastname ,email, password, confirmPassword } = data;
+     console.log( firstname, lastname ,email, password, confirmPassword );
+     fetch("http://localhost:8080/signup",{
+              method : "POST",
+              crossDomain:true,
+              headers : {
+                "content-type" : "application/json",
+                Accept:"application/json",
+                "Access-Control-Allow-Origin":"*"
+              },
+              body : JSON.stringify({
+                firstname,
+                lastname,
+                email,
+                password,
+                confirmPassword,
+              })
+            })
+            .then((res)=>res.json())
+            .then((data)=>{
+              console.log(data,"userRegister");
+            })
     };
 
 
@@ -76,28 +71,28 @@ const Signup = () => {
         <div style={{width:'25rem' ,paddingBottom:'5px', color:'#212F3D', backgroundColor:'#979A9A'}} >
 
         <h2>SignUp</h2>
-          <form className="mb-3 mt-2 pl-2 pb-2" onSubmit={handleSubmit}>
+          <form className="mb-3 mt-2 pl-2 pb-2" >
             <div>
             <label htmlFor='firstname'>First name</label>
             <input
             type={"text"}
-            id="firstName"
-            name="firstName"
+            id="firstname"
+            name="firstname"
             className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
-            value={data.firstName}
+            value={data.firstname}
             onChange={handleOnChange}
             placeholder='Enter Your first name'
           />
             </div>
             
            <div>
-           <label htmlFor="lastName">Last Name</label>
+           <label htmlFor="lastname">Last Name</label>
           <input
             type={"text"}
-            id="lastName"
-            name="lastName"
+            id="lastname"
+            name="lastname"
             className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-blue-300"
-            value={data.lastName}
+            value={data.lastname}
             onChange={handleOnChange}
             placeholder='Enter Your last name'
           />
@@ -158,7 +153,7 @@ const Signup = () => {
             </span>
           </div>
 
-          <button  type="button" className="btn btn-success" >submit</button>
+          <button  type="button" className="btn btn-success"  onClick={handleSubmit}>Sign Up</button>
           </form>
           <p className="text-left text-sm mt-2">
           Already have account ?{" "}
