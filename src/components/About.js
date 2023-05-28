@@ -10,7 +10,7 @@ const About = () => {
         <div className="card mb-3" style={{ width: "50rem", height: "20rem", paddingBlockStart: "2rem",  marginLeft: "5rem",marginTop: "5rem", backgroundColor:"lightblue"}}>
           <div className="row g-0">
             <div className="col-md-4" >
-              <img src={firstpro2} className="img-fluid rounded-start" alt="..."/>
+              <img src={tractor} className="img-fluid rounded-start col-xs-11 col-sm-6 col-md-8" alt="..." style={{width:"15rem",height:"15rem",}}/>
             </div>
             <div className="col-md-8">
               <div className="card-body">
@@ -51,7 +51,7 @@ const About = () => {
               </div>
             </div>
             <div className="col-md-4">
-              <img src={tractor} className="img-fluid rounded-start" alt="" />
+              <img src={firstpro2} className="img-fluid rounded-start col-xs-12 col-sm-6 col-md-8 fit box-cover" alt="" style={{width:"15rem",height:"15rem",}}/>
             </div>
           </div>
         </div>

@@ -20,17 +20,8 @@ const Navbar = () => {
           <a className="nav-link" href="/about">About</a>
         </li>
 
-        <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Features 
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Weather Report</a></li>
-            <li><a className="dropdown-item" href="/">pesticides & insecticides</a></li>
-            <li><a className="dropdown-item" href="/">Government scheme</a></li>
-            <li><a className="dropdown-item" href="/">Consultant</a></li>
-            
-          </ul>
+        <li className="nav-item">
+          <a className="nav-link " href="/features" > Features </a>
         </li>
 
         <li className="nav-item dropdown">
